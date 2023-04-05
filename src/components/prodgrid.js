@@ -14,7 +14,8 @@ import { FaStar} from "react-icons/fa";
 import { FiStar} from "react-icons/fi";
 import Rating from 'react-rating';
 import DropdownMenuDownArrow from './downarrow';
-import DropdownMenuDownArrowRight from './downarrowright';
+import {DropdownMenuDownArrowRight} from './downarrowright';
+
 // function RatingStars({ rating }) {
 //     const fullStars = Math.floor(rating);
 //     const halfStars = Math.ceil(rating - fullStars);
@@ -94,7 +95,7 @@ function ProductGrid() {
         <div className="filter">
         <DropdownMenuDownArrow/></div>
         <div className="filter1">
-        <DropdownMenuDownArrowRight/> 
+        <DropdownMenuDownArrowRight relevance="true"/> 
         </div>
         </div>
         {/* <button onClick={()=>gp(search)}>Search</button> */}
@@ -108,6 +109,7 @@ function ProductGrid() {
           <p className="disc_price">INR{product.mrp}</p>
           <p>INR{product.sale_price}</p>
           <p className="disc">{product.disc}%</p>
+
 
           {/* <Rating
           initialRating={product.rating}

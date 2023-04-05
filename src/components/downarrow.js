@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import './downarrow.css';
 import {AiOutlineArrowDown} from 'react-icons/ai'
+import { Button } from 'antd';
 // import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-function DropdownMenuDownArrow() {
+function DropdownMenuDownArrow(props) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -16,9 +17,10 @@ function DropdownMenuDownArrow() {
       </button>
       {isOpen && (
         <div className="dropdown-menu-content">
-          <a href="/">Kurtis</a>
-          <a href="/products/">Salwars</a>
-          <a>Pants</a>
+          <a>Kurtis</a>
+          <a>Kurtis</a>
+          <a>Kurtis</a>
+          <a>Kurtis</a>
         </div>
       )}
     </div>

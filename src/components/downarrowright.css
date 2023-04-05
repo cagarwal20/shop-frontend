@@ -36,7 +36,9 @@ text-decoration: none;
 .dropdown-menu-content a:hover {
 color: #f00;
 }
-
+.boldtext{
+  font-weight: bold;
+}
 @media screen and (max-width:768px) {
   .dropdown-menu {
     position: relative;

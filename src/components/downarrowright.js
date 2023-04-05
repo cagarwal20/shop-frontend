@@ -1,32 +1,32 @@
 import React, { useState } from 'react';
 import './downarrowright.css';
 import {AiOutlineArrowDown} from 'react-icons/ai'
+import { Button } from 'antd';
 // import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-function DropdownMenuDownArrowRight() {
+//export const sortby = "1";
+export function DropdownMenuDownArrowRight() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [sort,setsort] = useState()
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   }
-
+  const sortchange  = (value) =>{
+    setsort({value:"true"})
+  }
   return (
     <div className="dropdown-menu">
       <button className="dropdown-menu-button" onClick={toggleDropdown}>
-        <AiOutlineArrowDown/> Sort By
+        <AiOutlineArrowDown/> Sort By 
       </button>
-      {isOpen && (
+      {isOpen&&(
         <div className="dropdown-menu-content">
-          <a href="/">Relevance</a>
-          <a href="/products/">Price:low to high</a>
-          <a>Popularity</a>
-          <a href="/">Price:High to Low</a>
-          <a href="/products/">Discount: High to Low</a>
-          <a href="/products/">Discount: Low to High</a>
-          <a>Pants</a>
+          <a>Price: low to high</a>
+          <a>Price: high to low</a>
+          <a>Discount: high to low</a>
+          <a>Discount:low to high</a>
         </div>
       )}
     </div>
   );
 }
-
-export default DropdownMenuDownArrowRight;
+export default  DropdownMenuDownArrowRight;
