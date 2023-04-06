@@ -16,6 +16,9 @@ import Rating from 'react-rating';
 import DropdownMenuDownArrow from './downarrow';
 import {DropdownMenuDownArrowRight} from './downarrowright';
 import { useSelector } from 'react-redux';
+import { Button } from 'antd/es/radio';
+import ProductDetails from './productdetails';
+import { Link } from 'react-router-dom';
 //import {sortby} from './downarrowright';
 // function RatingStars({ rating }) {
 //     const fullStars = Math.floor(rating);
@@ -44,6 +47,7 @@ function ProductGrid() {
     const [searchtemp,setsearchtemp] = useState([]);
     const[loading,setloading] = useState(true);
     const sortby = useSelector(state => state.sortby);
+    const category = useSelector(state=>state.category)
     const [rating, setRating] = useState(0);
     //const [ myArray,setmyArray ] = useState(["one", "two", "three"]);
     // const gp = (search) => {
@@ -61,22 +65,24 @@ function ProductGrid() {
     //         setproducts(res.data.data)
 	// 	})
     // };
+    // const productdet = () =>{
 
+    // }
     useEffect(() => {
         setloading(true)
         const gp = setTimeout(() => {      
-            axios.get(`http://localhost:8000/get_products/?search=${search}&sort_by=${sortby}`)
+            axios.get(`http://localhost:8000/get_products/?search=${search}&sort_by=${sortby}&category=${category}`)
             .then(res => {
                 setproducts(res.data.data)
                 setloading(false)
             })
-        },2000)
+        },1300)
         return ()=>clearTimeout(gp)
-    },[search,sortby]);
+    },[search,sortby,category]);
     useEffect(() => {
         const gp = () => {
               
-            axios.get(`http://localhost:8000/get_products/?search=${search}&sort_by=${sortby}`)
+            axios.get(`http://localhost:8000/get_products/?search=${search}&sort_by=${sortby}&category=${category}`)
             .then(res => {
                 setproducts(res.data.data)
                 setloading(false)
@@ -106,7 +112,8 @@ function ProductGrid() {
       {products.map((product, index) => (
         <div className="ProductGrid-item" key={index}>
           <img src={product.image} alt={product.name} />
-          <h2>{product.name}</h2>
+          <a href="/product-details/"></a>
+          <Link to={`/product-details/${product.id}`}><h2>{product.name}</h2></Link>
           <p>{product.description}</p>
           <p className="disc_price">INR{product.mrp}</p>
           <p>INR{product.sale_price}</p>

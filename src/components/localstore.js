@@ -2,7 +2,7 @@ import { createStore } from 'redux';
 
 const initialState = {
   sortby: '1',
-  category:'KURTIS'
+  category:'1'
 };
 
 

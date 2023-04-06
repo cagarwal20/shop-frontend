@@ -18,7 +18,7 @@ function Footer() {
           <a href="https://www.instagram.com/" target="_blank"><FaInstagram/></a>
           <a href="https://www.youtube.com/" target="_blank"><FaYoutube/></a>
         </div>
-        <p>&copy; 2023 My Ecommerce Site</p>
+        <p>&copy; Diya's Collection</p>
       </div>
     </footer>
   );

@@ -34,10 +34,10 @@ export function DropdownMenuDownArrowRight() {
       </button>
       {isOpen&&(
         <div className="dropdown-menu-content">
-          <button onClick={sortchangeplh}>{sortby==1?<div className='boldtext'>Price: low to high</div>:<div>Price: low to high</div>}</button>
-          <button onClick={sortchangephl}>{sortby==2?<div className='boldtext'>Price: high to low</div>:<div>Price: high to low</div>}</button>
-          <button onClick={sortchangedhl}>{sortby==3?<div className='boldtext'>%off: low to high</div>:<div>%off: low to high</div>}</button>
-          <button onClick={sortchangedlh}>{sortby==4?<div className='boldtext'>%off: high to low</div>:<div>%off: high to low</div>}</button>
+          <Button onClick={sortchangeplh}>{sortby==1?<div className='boldtext'>Price: low to high</div>:<div>Price: low to high</div>}</Button>
+          <Button onClick={sortchangephl}>{sortby==2?<div className='boldtext'>Price: high to low</div>:<div>Price: high to low</div>}</Button>
+          <Button onClick={sortchangedhl}>{sortby==3?<div className='boldtext'>%off: low to high</div>:<div>%off: low to high</div>}</Button>
+          <Button onClick={sortchangedlh}>{sortby==4?<div className='boldtext'>%off: high to low</div>:<div>%off: high to low</div>}</Button>
         </div>
       )}
     </div>
