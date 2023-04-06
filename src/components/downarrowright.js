@@ -2,17 +2,31 @@ import React, { useState } from 'react';
 import './downarrowright.css';
 import {AiOutlineArrowDown} from 'react-icons/ai'
 import { Button } from 'antd';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 // import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-//export const sortby = "1";
+
 export function DropdownMenuDownArrowRight() {
+  const dispatch = useDispatch();
   const [isOpen, setIsOpen] = useState(false);
-  const [sort,setsort] = useState()
+  //const [sort,setsort] = useState()
+  const sortby = useSelector(state => state.sortby);
+  //const [sortby , setsortby] = useState("1")
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   }
-  const sortchange  = (value) =>{
-    setsort({value:"true"})
+  const sortchangeplh  = () =>{
+    dispatch({ type: 'UPDATE_SORTBY', payload: '1' });
   }
+  const sortchangephl  = () =>{
+    dispatch({ type: 'UPDATE_SORTBY', payload: '2' });
+   }
+   const sortchangedhl  = () =>{
+    dispatch({ type: 'UPDATE_SORTBY', payload: '3' });
+   }
+   const sortchangedlh  = () =>{
+    dispatch({ type: 'UPDATE_SORTBY', payload: '4' });
+   }
   return (
     <div className="dropdown-menu">
       <button className="dropdown-menu-button" onClick={toggleDropdown}>
@@ -20,13 +34,14 @@ export function DropdownMenuDownArrowRight() {
       </button>
       {isOpen&&(
         <div className="dropdown-menu-content">
-          <a>Price: low to high</a>
-          <a>Price: high to low</a>
-          <a>Discount: high to low</a>
-          <a>Discount:low to high</a>
+          <button onClick={sortchangeplh}>{sortby==1?<div className='boldtext'>Price: low to high</div>:<div>Price: low to high</div>}</button>
+          <button onClick={sortchangephl}>{sortby==2?<div className='boldtext'>Price: high to low</div>:<div>Price: high to low</div>}</button>
+          <button onClick={sortchangedhl}>{sortby==3?<div className='boldtext'>%off: low to high</div>:<div>%off: low to high</div>}</button>
+          <button onClick={sortchangedlh}>{sortby==4?<div className='boldtext'>%off: high to low</div>:<div>%off: high to low</div>}</button>
         </div>
       )}
     </div>
   );
 }
-export default  DropdownMenuDownArrowRight;
+
+export default DropdownMenuDownArrowRight;

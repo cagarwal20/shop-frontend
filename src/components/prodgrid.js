@@ -15,7 +15,8 @@ import { FiStar} from "react-icons/fi";
 import Rating from 'react-rating';
 import DropdownMenuDownArrow from './downarrow';
 import {DropdownMenuDownArrowRight} from './downarrowright';
-
+import { useSelector } from 'react-redux';
+//import {sortby} from './downarrowright';
 // function RatingStars({ rating }) {
 //     const fullStars = Math.floor(rating);
 //     const halfStars = Math.ceil(rating - fullStars);
@@ -42,6 +43,7 @@ function ProductGrid() {
     const [search,setsearch] = useState("");
     const [searchtemp,setsearchtemp] = useState([]);
     const[loading,setloading] = useState(true);
+    const sortby = useSelector(state => state.sortby);
     const [rating, setRating] = useState(0);
     //const [ myArray,setmyArray ] = useState(["one", "two", "three"]);
     // const gp = (search) => {
@@ -63,18 +65,18 @@ function ProductGrid() {
     useEffect(() => {
         setloading(true)
         const gp = setTimeout(() => {      
-            axios.get(`http://localhost:8000/get_products/?search=${search}`)
+            axios.get(`http://localhost:8000/get_products/?search=${search}&sort_by=${sortby}`)
             .then(res => {
                 setproducts(res.data.data)
                 setloading(false)
             })
         },2000)
         return ()=>clearTimeout(gp)
-    },[search]);
+    },[search,sortby]);
     useEffect(() => {
         const gp = () => {
               
-            axios.get(`http://localhost:8000/get_products/?search=${search}`)
+            axios.get(`http://localhost:8000/get_products/?search=${search}&sort_by=${sortby}`)
             .then(res => {
                 setproducts(res.data.data)
                 setloading(false)
@@ -95,7 +97,7 @@ function ProductGrid() {
         <div className="filter">
         <DropdownMenuDownArrow/></div>
         <div className="filter1">
-        <DropdownMenuDownArrowRight relevance="true"/> 
+        <DropdownMenuDownArrowRight/> 
         </div>
         </div>
         {/* <button onClick={()=>gp(search)}>Search</button> */}
@@ -110,7 +112,6 @@ function ProductGrid() {
           <p>INR{product.sale_price}</p>
           <p className="disc">{product.disc}%</p>
 
-
           {/* <Rating
           initialRating={product.rating}
         emptySymbol={<FiStar/>}
@@ -124,5 +125,4 @@ function ProductGrid() {
     </div>
   );
 }
-
 export default ProductGrid;
