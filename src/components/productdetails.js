@@ -12,7 +12,9 @@ import Slideshow from "./carousel1";
 import { useState } from "react";
 import { useParams } from 'react-router-dom';
 import axios from "axios";
-import { Carousel } from 'antd';
+import { Button, Carousel } from 'antd';
+import {Row,Col} from 'antd';
+import {Card} from "antd";
 function ProductDetails()
 {
     const { id } = useParams();
@@ -56,27 +58,29 @@ return (
             </div>
         </Carousel>
         <div className="product-section">
-
-        <h2 className="prod-desc">{product.name}</h2>
-        <p className="prod-desc">{product.description}</p>
-        
-        <h2>Features</h2>
+          <h2 className="prod-desc">{product.name}</h2>
+          <p className="prod-desc">{product.description}</p>
+          <h3 className="prod-desc1">MRP:{product.mrp}</h3>
+          <h3 className="prod-desc" >Sale Price: {product.sale_price}</h3>
+          <h2 className="prod-desc" style={{color:'red'}}>{product.disc}%</h2>
+        <h2 className="prod-desc">Features</h2>
         <ul>
-          <li>Feature 1</li>
-          <li>Feature 2</li>
-          <li>Feature 3</li>
+          <li className="prod-desc">jece fjefnfen   fiojioejioejio ifejioefjciojef  jfoi vjoifevefi</li>
+          <li className="prod-desc">jece fjefnfen   fiojioejioejio ifejioefjciojef  jfoi vjoifevefi</li>
+          <li className="prod-desc">jece fjefnfen   fiojioejioejio ifejioefjciojef  jfoi vjoifevefi</li>
         </ul>
         
-        <h2>Customer Reviews</h2>
-        <ul>
-          <li>Review 1</li>
-          <li>Review 2</li>
-          <li>Review 3</li>
+        <h2 className="prod-desc">Sizes</h2>
+        <ul className="prod-desc">
+          <Button style={{marginRight:'2em'}}>S</Button>
+          <Button style={{marginRight:'2em'}}>M</Button>
+          <Button style={{marginRight:'2em'}}>L</Button>
+          <Button style={{marginRight:'2em'}}>XL</Button>
         </ul>
       </div>
       
       {/* Purchase section */}
-      <div className="purchase-section">
+      {/* <div className="purchase-section">
         <button>Add to Cart</button>
         <select>
           <option>1</option>
@@ -86,17 +90,12 @@ return (
           <option>5</option>
         </select>
         <button>Checkout</button>
-      </div>
+      </div> */}
       
       {/* Related products section */}
-      <div className="related-products-section">
-        <h2>Related Products</h2>
-        <ul>
-          <li>Product 1</li>
-          <li>Product 2</li>
-          <li>Product 3</li>
-        </ul>
-      </div>
+      {/* <div className="related-products-section">
+        <h2 className="prod-desc" >Related Products</h2>
+      </div> */}
         <Footer/>
    </div>
 );
