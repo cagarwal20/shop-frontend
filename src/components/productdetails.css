@@ -1,0 +1,62 @@
+.product-page-container {
+    display: grid;
+    grid-template-areas:
+      "hero"
+      "product"
+      "purchase"
+      "related"
+      "footer";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto 1fr auto;
+    grid-gap: 20px;
+  }
+  .prod-desc{
+    display: flex;
+    justify-content: center;
+    /* margin-right: 11em; */
+  }
+  .contentStyle{
+    height: '160px';
+  color: '#fff';
+  text-align: center;
+  background-color: aqua;
+  line-height: 20em;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .product-page-container {
+      grid-template-areas:
+        "hero hero"
+        "product purchase"
+        "related related"
+        "footer footer";
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto 1fr auto;
+    }
+  
+    .purchase-section {
+      grid-area: purchase;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    .purchase-section button:nth-of-type(1) {
+      order: 1;
+    }
+  
+    .purchase-section select {
+      order: 2;
+    }
+  
+    .purchase-section button:nth-of-type(2) {
+      order: 3;
+    }
+    .prod-desc{
+        display: flex;
+        justify-content: center;
+        margin: 1em;
+        /* margin-right: 1em; */
+      }
+  }
+  
